@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Real-Time Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>☕ Java Quiz Arena</h1>
+            <p>Challenge your Java programming knowledge!</p>
+        </header>
+
+        <!-- HOME SCREEN -->
+        <section id="homeScreen" class="card">
+
+            <h2>Welcome to Java Quiz</h2>
+
+            <button id="createGameBtn">
+                Create Quiz
+            </button>
+
+            <hr>
+
+            <h3>Join a Quiz</h3>
+
+            <input
+                type="text"
+                id="gameCodeInput"
+                placeholder="Enter 6-digit game code"
+                maxlength="6"
+            >
+
+            <input
+                type="text"
+                id="playerNameInput"
+                placeholder="Enter your name"
+                maxlength="20"
+            >
+
+            <button id="joinGameBtn">
+                Join Quiz
+            </button>
+
+            <p id="homeMessage" class="message"></p>
+
+        </section>
+
+        <!-- LOBBY SCREEN -->
+        <section id="lobbyScreen" class="card hidden">
+
+            <h2>Waiting Lobby</h2>
+
+            <p>
+                Game Code:
+                <strong id="displayCode"></strong>
+            </p>
+
+            <button id="copyCodeBtn" class="secondary">
+                Copy Game Code
+            </button>
+
+            <p id="roleMessage"></p>
+
+            <h3>Players Joined</h3>
+
+            <ul id="playerList"></ul>
+
+            <button id="startQuizBtn" class="hidden">
+                Start Java Quiz
+            </button>
+
+            <p id="lobbyMessage" class="message"></p>
+
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quizScreen" class="card hidden">
+
+            <div class="quizInfo">
+                <span id="questionNumber"></span>
+                <span>
+                    Time: <strong id="timer">15</strong>s
+                </span>
+            </div>
+
+            <div class="timerBar">
+                <div id="timerProgress"></div>
+            </div>
+
+            <h2 id="questionText"></h2>
+
+            <div id="optionsContainer"></div>
+
+            <p id="answerMessage" class="message"></p>
+
+        </section>
+
+        <!-- RESULTS SCREEN -->
+        <section id="resultScreen" class="card hidden">
+
+            <h2 id="resultTitle">Quiz Results</h2>
+
+            <p id="winnerMessage"></p>
+
+            <h3>Final Leaderboard</h3>
+
+            <ol id="leaderboardList"></ol>
+
+            <button id="playAgainBtn">
+                Back to Home
+            </button>
+
+        </section>
+
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
